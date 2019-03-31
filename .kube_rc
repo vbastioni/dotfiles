@@ -1,0 +1,21 @@
+alias k='kubectl'
+alias kall='kubectl get all'
+alias kdep='kubectl get deploy'
+alias kpod='kubectl get pod'
+alias kserv='kubectl get services'
+
+kapply() {
+	if [[ "$1" == "" ]]; then
+		echo "usage kapply <path>"
+	else
+		kubectl apply -f "$1"
+	fi
+}
+
+kfpod() {
+	if [[ "$1" == "" ]]; then
+		echo "usage: kfpod <regex>"
+	else
+		kubectl get pod | grep "$1"
+	fi
+}
